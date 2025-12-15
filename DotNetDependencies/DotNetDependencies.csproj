@@ -15,4 +15,4 @@
 
 
 <!-- dotnet add package <name of dependency> -->
-<!-- dotnet list package --outdated -->
+<!-- dotnet list package - -outdated -->
