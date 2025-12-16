@@ -29,9 +29,10 @@ namespace GetSetValidation.Models
         public void ListarAlunos()
         {
             Console.WriteLine($"Alunos do Curso de: {NomeCurso}");
-            foreach (Pessoa aluno in Alunos)
+            for (int count = 0; count < Alunos.Count; count++)
             {
-                Console.WriteLine(aluno.NomeCompleto);
+                string textoExibicao = $"Nº {count + 1} - {Alunos[count].NomeCompleto}";
+                Console.WriteLine(textoExibicao);
             }
         }
     }
