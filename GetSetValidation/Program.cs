@@ -1,6 +1,31 @@
 ﻿using GetSetValidation.Models;
 using System.Globalization;
 
+try
+{
+    string[] linhas = File.ReadAllLines("Arquivos/leitura.txt");
+
+    foreach (var linha in linhas)
+    {
+        Console.WriteLine(linha);
+    }
+}
+catch (FileNotFoundException ex)
+{
+
+    Console.WriteLine($"Erro na leitura do arq. Arquivo não encontrado: {ex.Message}");
+}
+catch (DirectoryNotFoundException ex)
+{
+
+    Console.WriteLine($"Erro na leitura do arq. Pasta não encontrada: {ex.Message}");
+}
+catch (System.Exception ex)
+{
+
+    Console.WriteLine($"Erro na leitura do aqr. erro generico: {ex.Message}");
+}
+
 DateTime data = DateTime.Now;
 
 Console.WriteLine(data);
@@ -31,9 +56,11 @@ Pessoa p1 = new("Mingous", "Kapunda");
 
 Pessoa p2 = new("Ântero", "O Vazio");
 
-Curso cursoDeIngles = new();
-cursoDeIngles.NomeCurso = "Ingles";
-cursoDeIngles.Alunos = [];
+Curso cursoDeIngles = new()
+{
+    NomeCurso = "Ingles",
+    Alunos = []
+};
 
 cursoDeIngles.AdicionarAluno(p1);
 cursoDeIngles.AdicionarAluno(p2);
