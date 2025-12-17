@@ -1,6 +1,27 @@
 ﻿using GetSetValidation.Models;
 using System.Globalization;
 
+// colecoes de dados fila / queue
+Queue<int> fila = new();
+//metodo para add el no final da fila. as queue usam/trabalham com o metodo FIFO
+fila.Enqueue(1);
+fila.Enqueue(3);
+fila.Enqueue(9);
+fila.Enqueue(11);
+
+foreach (var item in fila)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine($"Removendo o primeiro elemento da fila: {fila.Dequeue()}");
+
+foreach (var item in fila)
+{
+    Console.WriteLine(item);
+}
+
+// Tratamento de excessoes com try-catch
 try
 {
     string[] linhas = File.ReadAllLines("Arquivos/leitura.txt");
