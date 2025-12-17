@@ -1,6 +1,29 @@
 ﻿using GetSetValidation.Models;
 using System.Globalization;
 
+// colecoes de dados pilha / stack
+Stack<int> pilha = new();
+//metodo para add el no final/topo da pilha. a stack usa/trabalha com o metodo LIFO
+pilha.Push(2);
+pilha.Push(4);
+pilha.Push(8);
+pilha.Push(12);
+
+foreach (var item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine($"Removendo o ultimo elemento (el do topo) da pilha: {pilha.Pop()}");
+pilha.Push(20);
+
+foreach (var item in pilha)
+{
+    Console.WriteLine(item);
+}
+
+Console.WriteLine();
+
 // colecoes de dados fila / queue
 Queue<int> fila = new();
 //metodo para add el no final da fila. as queue usam/trabalham com o metodo FIFO
