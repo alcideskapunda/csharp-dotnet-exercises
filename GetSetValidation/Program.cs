@@ -1,9 +1,50 @@
 ﻿using GetSetValidation.Models;
 using System.Globalization;
 
+// colecoes de dados dicionário / Dictionary - tipo um "array" de, chave e valor. as chaves/key devem ser unicas senão gera uma excecao
+Dictionary<string, string> estados = [];
+
+estados.Add("SP", "São Paulo");
+estados.Add("BA", "Bahia");
+estados.Add("C2", "Calemba 2");
+estados.Add("MG", "Minas Gerais");
+
+// Acessar valor issolado
+Console.WriteLine(estados["C2"]);
+Console.WriteLine();
+
+foreach (var item in estados)
+{
+    Console.WriteLine(item);
+    Console.WriteLine($"Chaves: {item.Key}, Valor: {item.Value}");
+}
+Console.WriteLine("------------------------");
+// Para remover um el é só usar a chave como referencia.
+estados.Remove("MG");
+// Apenas os values podem ser alterados.
+estados["SP"] = "São Paulo - Valor alterado";
+
+foreach (var item in estados)
+{
+    Console.WriteLine(item);
+    Console.WriteLine($"Chaves: {item.Key}, Valor: {item.Value}");
+}
+
+Console.WriteLine();
+
+string chave = "BA";
+Console.WriteLine("Verificar se o elemento existe " + chave);
+
+if (estados.ContainsKey(chave))
+{
+    Console.WriteLine($"Valor já existe no dictionary {chave}");
+}
+
+Console.WriteLine();
+
 // colecoes de dados pilha / stack
 Stack<int> pilha = new();
-//metodo para add el no final/topo da pilha. a stack usa/trabalha com o metodo LIFO
+//metodo para add el no final/topo da pilha. a stack trabalha com a ordem de adição e remoção LIFO
 pilha.Push(2);
 pilha.Push(4);
 pilha.Push(8);
@@ -26,7 +67,7 @@ Console.WriteLine();
 
 // colecoes de dados fila / queue
 Queue<int> fila = new();
-//metodo para add el no final da fila. as queue usam/trabalham com o metodo FIFO
+//metodo para add el no final da fila. a queue trabalham com a ordem de adição e remoção FIFO
 fila.Enqueue(1);
 fila.Enqueue(3);
 fila.Enqueue(9);
